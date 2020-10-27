@@ -4,7 +4,7 @@ const Gradients = () => {
   return (
     <div className="gradients">
       <div className="gradient behind" color="blue"></div>
-      <div className="gradient" color="red"></div>
+      <div className="gradient" color="grey"></div>
       <div className="gradient" color="green"></div>
       <div className="gradient" color="orange"></div>
       <div className="gradient" color="black"></div>

@@ -1,12 +1,12 @@
-$blue-gradient: linear-gradient(45deg, #0136af, #22abfa);
-$red-gradient: linear-gradient(45deg, #d62926, #ee625f);
+$blue-gradient: linear-gradient(45deg, #22abfa, #93cace);
+$grey-gradient: linear-gradient(45deg, #666667, #b3b3b2);
 $green-gradient: linear-gradient(45deg, #11998e, #1ce669);
 $orange-gradient: linear-gradient(45deg, #fc4a1a, #f7b733);
-$black-gradient: linear-gradient(45deg, #111, #666);
+$black-gradient: linear-gradient(45deg, #b3b3b2, #666667);
 
 $gradientBgs: (
   "blue": $blue-gradient,
-  "red": $red-gradient,
+  "grey": $grey-gradient,
   "green": $green-gradient,
   "orange": $orange-gradient,
   "black": $black-gradient,
@@ -22,7 +22,7 @@ $box-shadow3: 0 0 10px 0.5px rgba(0, 0, 0, 0.2);
 
 // Mixins
 
-@mixin flex-centered($a: 1, $j: 1) {
+@mixin flex-centegrey($a: 1, $j: 1) {
   display: flex;
   @if ($a==1) {
     align-items: center;
@@ -32,7 +32,7 @@ $box-shadow3: 0 0 10px 0.5px rgba(0, 0, 0, 0.2);
   }
 }
 
-// Working as an alias for flex-centered
+// Working as an alias for flex-centegrey
 @mixin fc($a: 1, $b: 1) {
-  @include flex-centered($a, $b);
+  @include flex-centegrey($a, $b);
 }

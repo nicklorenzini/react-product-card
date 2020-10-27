@@ -6,7 +6,7 @@ import Info from "../components/Info/Info";
 import logo from "../assets/img/logo.png";
 
 const Home = () => {
-  var sizes, colors, shoes, gradients, shoeBackground, shoeHeight;
+  var sizes, colors, shirts, gradients, shirtBackground, shirtHeight;
   var prevColor = "blue";
   var animateOrNot = true;
 
@@ -17,7 +17,7 @@ const Home = () => {
     }
     var primary = this.getAttribute("primary");
     var color = this.getAttribute("color");
-    var shoe = document.querySelector(`.shoe[color="${color}"]`);
+    var shirt = document.querySelector(`.shirt[color="${color}"]`);
     var gradient = document.querySelector(`.gradient[color="${color}"]`);
     var prevGradient = document.querySelector(
       `.gradient[color="${prevColor}"]`
@@ -31,8 +31,8 @@ const Home = () => {
     document.documentElement.style.setProperty("--primary", primary);
 
     // showing correct img
-    shoes.forEach(s => s.classList.remove("show"));
-    shoe.classList.add("show");
+    shirts.forEach(s => s.classList.remove("show"));
+    shirt.classList.add("show");
 
     // dealing with gradient
     gradients.forEach(g => g.classList.remove("display", "behind"));
@@ -58,29 +58,29 @@ const Home = () => {
   const changeHeight = () => {
     var x = window.matchMedia("(max-width:1000px)");
 
-    !shoes ? (shoeHeight = 0) : (shoeHeight = shoes[0].offsetHeight);
+    !shirts ? (shirtHeight = 0) : (shirtHeight = shirts[0].offsetHeight);
 
     if (x.matches) {
-      if (shoeHeight === 0) {
+      if (shirtHeight === 0) {
         try {
           setTimeout(changeHeight, 50);
         } catch (error) {
           alert("Something is Wrong!!");
         }
       }
-      shoeBackground.style.height = `${shoeHeight * 0.9}px`;
-    } else if (!!shoeBackground) {
+      shirtBackground.style.height = `${shirtHeight * 0.9}px`;
+    } else if (!!shirtBackground) {
       // go back to default
-      shoeBackground.style.height = "475px";
+      shirtBackground.style.height = "475px";
     }
   };
 
   useEffect(() => {
     sizes = document.querySelectorAll(".size");
     colors = document.querySelectorAll(".color");
-    shoes = document.querySelectorAll(".shoe");
+    shirts = document.querySelectorAll(".shirt");
     gradients = document.querySelectorAll(".gradient");
-    shoeBackground = document.querySelector(".shoeBackground");
+    shirtBackground = document.querySelector(".shirtBackground");
 
     colors.forEach(color => color.addEventListener("click", changeColor));
     sizes.forEach(size => size.addEventListener("click", changeSize));
@@ -92,14 +92,13 @@ const Home = () => {
     <div className="Home">
       <div className="container">
         <div className="card">
-          <div className="shoeBackground">
+          <div className="shirtBackground">
             <Gradients />
 
-            <h1 className="nike">nike</h1>
             <img src={logo} alt="logo" className="logo" />
-            <a href="/#" className="share">
+            <i onClick={() => alert('Test share link!')} className="share">
               <i className="fas fa-share-alt"></i>
-            </a>
+            </i>
 
             <ProductImages />
           </div>
